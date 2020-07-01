@@ -15,6 +15,8 @@ class CreateFilesTbl extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer("product");
+            $table->string("filename");
             $table->timestamps();
         });
     }
