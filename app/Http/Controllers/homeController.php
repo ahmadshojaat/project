@@ -79,7 +79,7 @@ class homeController extends Controller
                 array_push($exp_file,$row);
             }
             DB::table("files")->insert($exp_file);
-            //dd($exp_file);
+            //below code not work :(
 //            $file=new files();
 //            $file->create($exp_file);
 //            $file->save();
