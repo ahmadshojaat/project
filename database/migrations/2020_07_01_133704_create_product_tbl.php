@@ -18,7 +18,6 @@ class CreateProductTbl extends Migration
             $table->string("per_title")->default(null);
             $table->string("eng_title")->default(null);
             $table->integer("type")->default(null);
-            $table->integer("isnew")->default(1);
             $table->timestamps();
         });
     }

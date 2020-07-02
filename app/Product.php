@@ -12,4 +12,9 @@ class Product extends Model
     {
         return $this->hasMany('App/Files');
     }
+
+    public function type()
+    {
+        return $this->hasOne("App/Type");
+    }
 }

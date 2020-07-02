@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',"homeController@add_form" )->name("home");
+Route::post('/upload', 'homeController@ck_file_uploader')->name('upload');
+
+
