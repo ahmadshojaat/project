@@ -17,6 +17,8 @@ class CreateProductTbl extends Migration
             $table->bigIncrements('id');
             $table->string("per_title")->default(null);
             $table->string("eng_title")->default(null);
+            $table->string("image")->default(null);
+            $table->string("description")->default(null);
             $table->integer("type")->default(null);
             $table->timestamps();
         });
