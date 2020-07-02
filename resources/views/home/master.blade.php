@@ -20,8 +20,8 @@
     </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="#" >ثبت</a></li>
-            <li class="nav-item"><a class="nav-link" href="#about">لیست</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route("home") }}" >ثبت</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route("product_list",[1]) }}">لیست</a></li>
         </ul>
     </div>
 </nav>

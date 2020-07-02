@@ -3,20 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\files;
+use App\Helper\Helper;
 use App\Product;
 use App\Type;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\URL;
-use Symfony\Component\Console\Input\Input;
 
 class homeController extends Controller
 {
     public function add_form()
     {
         $type=Type::all();
-        return view("home.add_form",["type"=>$type]);
+        return view("home.product_add",["type"=>$type]);
     }
     public function ck_file_uploader(Request $request)
     {
@@ -87,4 +86,37 @@ class homeController extends Controller
         }
     }
 
+    public function product_list($page)
+    {
+        if (is_numeric($page)){
+            $helper=new Helper();
+            $limit=5;
+            $all=Product::all()->count();
+            if ($page==1){
+                $count=0;
+            }else
+            {
+                $count=ceil(($page-1)*$limit);
+            }
+            $pagecount=ceil($all/$limit);
+            $product=Product::all()->skip($count)->take($limit);
+            return view("home.product_list",
+                ["products"=>$product,
+                    "pagecount"=>$pagecount,
+                    "i"=>1,
+                    "currentpage"=>$page,
+                    "helper"=>$helper,
+                ]
+            );
+        }else
+        {
+            return back();
+        }
+
+    }
+
+    public function product_edit($id)
+    {
+
+    }
 }
