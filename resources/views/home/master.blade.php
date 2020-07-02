@@ -15,9 +15,7 @@
 <body id="page-top">
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none" style="color: white" >ذخیره و نمایش محصولات</span>
-    </a>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="{{ route("home") }}" >ثبت</a></li>

@@ -6,6 +6,8 @@ use App\files;
 use App\Helper\Helper;
 use App\Product;
 use App\Type;
+use Faker\Provider\File;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -76,9 +78,11 @@ class homeController extends Controller
                 $row=["filename"=>$filename,"product"=>$lastid];
                 array_push($exp_file,$row);
             }
-            $file=new files();
-            $file->insert($exp_file);
-            $file->save();
+            DB::table("files")->insert($exp_file);
+            //dd($exp_file);
+//            $file=new files();
+//            $file->create($exp_file);
+//            $file->save();
             return back();
         }else
         {
@@ -117,6 +121,9 @@ class homeController extends Controller
 
     public function product_edit($id)
     {
-
+        $type=Type::all();
+        $files=Files::where("product","=",$id)->get();
+        $product=Product::find($id)->first();
+        return view("home.product_edit",["product"=>$product,"type"=>$type,"files"=>$files]);
     }
 }

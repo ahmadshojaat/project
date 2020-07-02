@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateTypeTbl extends Migration
@@ -18,6 +19,7 @@ class CreateTypeTbl extends Migration
             $table->string("title");
             $table->timestamps();
         });
+        DB::table("type")->insert(array(["title"=>"معمولی"],["title"=>"سنگین"],["title"=>"حجیم"]));
     }
 
     /**
